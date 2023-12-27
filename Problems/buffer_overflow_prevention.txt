@@ -1,0 +1,32 @@
+read_from(lower, &letter_d, sizeof(lower), 3); 
+
+"Invoke the 'read_from' function, providing the following arguments:
+
+'lower': The source data, which is a character array.
+'&letter_d': A reference to the destination where the data will be copied.
+'sizeof(lower)': The size of the data in the 'lower' array.
+'3': The position within the 'lower' array from which to read the data.
+This call to the function copies data from the 'lower' array, starting at position 3, and stores it in the 'letter_d' variable."
+
+
+
+
+
+void read_from(const char* source, char* destination, size_t size, size_t index) into plain English:
+
+"Create a function named 'read_from' that takes the following inputs:
+
+'source': A pointer to a constant character (string) that represents the source data.
+'destination': A pointer to a character (string) where the data will be copied.
+'size': An integer representing the size of the data.
+'index': An integer representing the position within the source data from which to read.
+This function is designed to copy data from the 'source' to the 'destination' based on the specified 'index' and 'size' parameters."
+
+
+
+
+If the & is omitted before letter_d in the function call read_from(lower, letter_d, sizeof(lower), 3);, it would likely result in a compilation error because the read_from function expects a pointer to a character (char) as the second argument, not the character itself.
+
+In the original function declaration void read_from(const char* source, char* destination, size_t size, size_t index), the second parameter destination is declared as a pointer to a character (char*), which means it should receive the memory address where the data should be copied, not the data itself.
+
+So, if you omit the & before letter_d, the compiler will likely generate an error indicating a type mismatch because you are passing a char (the value) instead of a char* (a pointer to a character) as required by the function's parameter declaration.

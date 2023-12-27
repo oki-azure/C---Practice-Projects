@@ -1,0 +1,271 @@
+<<<<<<<<<<<<<<<<<<<<<<<<<<< More C++ tips >>>>>>>>>>>>>>>>>>>>>>>>>>
+------------------------------------------------------------------------------------------------------------
+
+Why we pass pointer and refernces to objects in C++
+
+Passing pointers and references of objects to functions in programming serves several important purposes and is driven by various reasons, including:
+
+1.       Efficiency and Performance:
+Passing pointers or references to objects instead of the entire object can be more efficient, especially when dealing with large objects. It avoids the overhead of copying the entire object.
+
+2.       Avoiding Data Duplication:
+When you pass an object by value, a copy of the object is created in memory. This can be resource-intensive and lead to memory waste, especially for large objects. Passing by reference or pointer avoids this duplication.
+
+3.       Modifying Objects:
+If you want a function to modify the original object (rather than a copy), you need to pass a reference or a pointer to the object. This is essential for implementing functions that have side effects on the input.
+
+4.       Sharing Data:
+In some cases, you might want multiple parts of your program to work with and modify the same data. Passing references or pointers allows different functions to work with the same object, effectively sharing data.
+
+5.       Dynamic Memory Allocation:
+When you need to allocate memory dynamically (e.g., with new in C++), you often return a pointer to the allocated memory from a function to manage the object's lifetime. This is common when working with data structures like linked lists and trees.
+
+6.       Polymorphism:
+When dealing with inheritance and polymorphism, you often need to pass pointers or references to base classes to enable functions to work with objects of derived classes. This is essential for achieving runtime polymorphism (e.g., using virtual functions).
+
+7.       Minimizing Stack Usage:
+Objects created on the stack consume memory from the program's stack. Passing a reference or a pointer to an object avoids creating a new stack frame for the object, which can be particularly useful in recursive algorithms.
+
+8.       Accessing and Modifying Data Across Functions:
+If you want to pass data between functions and retain changes made in one function in another, passing pointers or references allows data sharing and modification across function boundaries.
+
+9.       Changing Function Behavior:
+Passing function pointers or references can enable you to change the behavior of a function dynamically. This is often used in callback functions or event handling.
+
+10.          Minimizing Copy Overhead:
+In some cases, creating a copy of an object may be computationally expensive, or it might not even be possible if the object has no copy constructor defined. Passing by reference or pointer allows you to work with the object without making a copy.
+
+The choice of whether to pass an object by value, reference, or pointer depends on your specific requirements and the goals of your code. It is essential to consider factors like data ownership, data sharing, performance, and the desired behavior of the function when deciding how to pass objects to functions.
+------------------------------------------------------------------------------------------------------------
+
+Automatic variables
+
+In C++, an "automatic variable" is a variable that is allocated and deallocated automatically by the compiler within a specific scope. These variables are sometimes also referred to as "local variables." Automatic variables are a fundamental concept in C++ and are used extensively in function and block scopes. Here are some key characteristics and points related to automatic variables:
+-------------------------------------------------------------------------------------------------------------
+
+To pass custom command line arguments to a .cpp file:
+1.       Build the file into  an exe file
+2.       Run it from terminal using command :
+               file_name.exe "custom arguments"
+It's that simple
+-------------------------------------------------------------------------------------------------------------
+
+Exit Status
+The main function can return an int corresponding to the exit status of the 
+program. What the values represent is environment defined. On modern 
+desktop systems, for example, a zero return value corresponds with a successful program execution. If no return statement is explicitly given, an implicit 
+return 0 is added by the compiler.
+-------------------------------------------------------------------------------------------------------------
+
+The difference between i++, i += 1 and i+1
+
+1.       i++
+This is the postfix increment 
+It increments the value of i by one but returns the original value of i 
+for example, if i = 5 , 
+i++ implies , now i = 6
+but if you return i++, you get 5
+
+2        i += 1
+This is the increment assignment
+it increments i by one but does not return anything
+hence if i = 5
+i += 1 implies, now i = 6
+but if you return i += 1, you get None
+
+
+3.       i + 1
+returns an increment of i by one but does not change the value of i 
+so if i = 5
+i + 1 returns 6
+but i is still 5
+-------------------------------------------------------------------------------------------------------------
+
+Applications of the C++ size_t data type
+
+The primary use of size_t is related to memory allocation and manipulation. Some common use cases include:
+
+1.  Array indexing: size_t is commonly used for indexing arrays and accessing elements, as it ensures that indices are non-negative and can accommodate the entire range of valid indices.
+
+2.  Measuring and calculating memory sizes: size_t is often used to determine the size of memory blocks, calculate offsets, and ensure that the appropriate amount of memory is allocated.
+
+3.  Loops and iterations: size_t is often used as the loop counter when iterating over elements in arrays, vectors, or other data structures.
+
+4.  String manipulation: When working with strings, size_t is frequently used to represent string lengths or indices.
+-------------------------------------------------------------------------------------------------------------
+
+Encapsulation 
+
+It's the pillar of OOP 
+
+It refers to the concept of bundling data (attributes or properties) and the methods (functions or
+operations) that operate on that data into a single unit called a class. 
+ 
+The key idea behind encapsulation is to hide the internal details of an object and provide a well-defined interface for interacting with the object.
+
+Here are some key aspects of encapsulation in C++:
+
+1.  Data Hiding: In an encapsulated class, the internal data members (variables) are often marked as private. This means that they can only be accessed and modified through the class's member functions (methods), which are typically marked as public. This enforces a level of control over the data, preventing unauthorized or inconsistent modifications.
+
+2.  Public Interface: The class defines a public interface (a set of member functions) that allows users of the class to interact with its data in a controlled manner. Users of the class can access and manipulate the data only through these well-defined methods.
+
+3.  Encapsulation of Behavior: In addition to data, encapsulation also encapsulates behavior. The methods within the class define how the data can be used, ensuring that the data remains in a consistent and valid state.
+
+4.  Information Hiding: Encapsulation also provides a form of information hiding. The internal implementation details of the class are hidden from users of the class. Users need not know how the data is stored or how the methods are implemented. They can work with the class based on its interface.
+-------------------------------------------------------------------------------------------------------------
+
+The Catch2 Linking Breakthrough
+
+1. Use the msys2 pacman to install the library
+
+2.  Edit the taks.json file to add the -lCatch2Main -lCatch2 compiler arguments in that order
+-------------------------------------------------------------------------------------------------------------
+
+An "unsigned char" is a numeric data type. It is used to represent an 8-bit integer value in the range of 0 to 255. It's used to work with individual numeric values, such as ASCII character codes, pixel values in images, or any other data that can be represented as an 8-bit unsigned integer.
+-------------------------------------------------------------------------------------------------------------
+
+In C++, to "expose a method" typically means making a class member function (a method) accessible and usable from outside the class, allowing other parts of your program to call and use that method. Exposing a method involves providing access to the method's functionality, typically by declaring it as public in the class definition.
+-------------------------------------------------------------------------------------------------------------
+
+In C++, you can use `c + '0'` to convert a digit character `c` to its corresponding integer value, but the result would not be the same as subtracting `'0'` from `c`. Let me explain the difference between the two approaches:
+
+1. Subtracting `'0'` from `c`:
+   - The character `'0'` has an ASCII value of 48, `'1'` has an ASCII value of 49, `'2'` has an ASCII value of 50, and so on.
+   - When you subtract `'0'` from a digit character `c`, you effectively perform the reverse operation of converting a character to its integer value.
+   - For example, if `c` is '3', then `'3' - '0'` would result in the integer `3`.
+
+2. Adding `'0'` to `c`:
+   - When you add `'0'` to a character `c`, you don't directly convert it to an integer. Instead, you get the ASCII value of the character `c` plus the ASCII value of '0'.
+   - For example, if `c` is '3', then `'3' + '0'` would result in an integer value of 99 (the ASCII value of '3' + the ASCII value of '0', which is 51 + 48).
+   - This is not the desired behavior if you want to convert the character '3' to the integer 3.
+
+So, if your goal is to convert a digit character to its corresponding integer value, you should use the subtraction approach (`c - '0'`) as it correctly converts the character to the desired integer value.
+-------------------------------------------------------------------------------------------------------------
+
+In C++, several operators typically return a reference to an object. These include:
+
+1. **Assignment operator (`=`)**: This operator assigns the value of the right operand to the left operand and returns a reference to the left operand.
+
+2. **Compound assignment operators (`+=`, `-=`, `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `^=`, `|=`)**: These operators perform an operation and assignment in one step, and return a reference to the left operand.
+
+3. **Increment and decrement operators (`++`, `--`)**: Both the prefix (`++i`, `--i`) and postfix (`i++`, `i--`) versions of these operators return a reference to the object they were called on.
+
+4. **Array subscript operator (`[]`)**: This operator returns a reference to the element at the specified index of the array.
+
+5. **Dereference operator (`*`)**: When used with a pointer, this operator returns a reference to the object the pointer points to.
+
+6. **Member access operators (`.` and `->`)**: The dot operator returns a reference to the member of an object, and the arrow operator returns a reference to the member of an object that a pointer points to.
+
+Remember, these are the typical behaviors of these operators in C++. However, when you're creating your own types, you can overload these operators to behave differently if needed.
+-------------------------------------------------------------------------------------------------------------
+
+In C++, RTTI stands for "Run-Time Type Information." It's a mechanism that provides information about the dynamic type of an object at runtime. The `typeid` operator is a part of C++ RTTI and is used to determine the type of an object or expression.
+
+Here's how `typeid` works:
+
+1. When you apply the `typeid` operator to an object or an expression, it returns a `std::type_info` object that represents the type of that object or expression.
+
+2. This information is obtained at runtime, and it can be used for various purposes, such as to check if two objects are of the same type, to determine the type of an object in a polymorphic hierarchy, or to make decisions based on the type of an object.
+
+
+Please keep in mind that RTTI and `typeid` have some performance overhead, and their use is typically discouraged in performance-critical code. In some cases, you might find alternative design patterns that avoid the need for RTTI, such as using virtual functions and dynamic polymorphism.
+-------------------------------------------------------------------------------------------------------------
+
+In computer programming, "boilerplate" refers to sections of code that are repeated in multiple places with little to no alteration¹². This term is often used when referring to languages that are considered verbose, meaning the programmer must write a lot of code to accomplish only minor functionality¹².
+
+Boilerplate code can be reduced through high-level mechanisms such as metaprogramming (which has the computer automatically write the needed boilerplate code or insert it at compile time), convention over configuration (which provides good default values, reducing the need to specify program details in every project), and model-driven engineering (which uses models and model-to-code generators, eliminating the need for manual boilerplate code)².
+
+The term "boilerplate" originated from the newspaper business. Columns and other pieces that were distributed by print syndicates were sent to subscribing newspapers in the form of prepared printing plates. Because of their resemblance to the metal plates used in the making of boilers, they became known as "boiler plates", and their resulting text—"boilerplate text"².
+
+In the context of web development, a simple boilerplate for HTML might look like this¹:
+
+```html
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<p>Hello world! This is HTML5 Boilerplate.</p>
+<script src="js/vendor/modernizr-{ {MODERNIZR_VERSION}}.min.js> </script>
+</body>
+</html>
+```
+
+Most professional web developers have created a collection of assets and snippets of code that they reuse on projects to accelerate development¹. There are some universal or near universal patterns that all websites share in common. Rather than continuously rebuild these, most developers start by copying the code they used for a similar project and then start modifying it.
+-------------------------------------------------------------------------------------------------------------
+
+Yes, you can create a boilerplate for C++ in Visual Studio Code. Here are the steps to do it:
+
+1. Open your VS Code and click on the settings button in the bottom-left corner.
+2. Click on User Snippets.
+3. You’ll see a dropdown at the top of a list of various JSON files. Click on `cpp.json`.
+4. Remove all the code from this file and write down the code given below:
+
+```json
+{
+    "cpp snippets": {
+        "prefix" : "boilerplate",
+        "body" : [
+            "#include<iostream>",
+            "using namespace std;",
+            "int main ()",
+            "{",
+            "return 0;",
+            "}"
+        ],
+        "description" : "to produce the main snippet for cpp"
+    }
+}
+```
+
+5. After writing the code, press `Ctrl + S` to save the changes that have been made¹.
+
+Now, whenever you type `boilerplate` in a new C++ file and press `Enter`, it will automatically insert the boilerplate code for you.
+
+If you want to add multiple snippets, rename the first one to cpp snippets1 and the next one ...2 follows the same structure onwards
+-------------------------------------------------------------------------------------------------------------
+
+In C++, serialization is the process of converting an object into a sequence of bytes so that it can be stored in memory, written to disk, or transmitted over a network¹. This byte stream can then be used to recreate the original object, a process known as deserialization¹.
+
+Serialization is useful for several reasons:
+- It allows you to save the state of an object and restore it later. This is useful for things like saving game progress, for example.
+- It enables you to send objects over a network. For instance, in a client-server model, you might want to send objects from the server to the client.
+
+Deserialization is the reverse process of serialization. It converts the serialized byte stream back into an object¹. This is useful when you want to retrieve the object's state or when you receive an object over a network and need to use it in your program¹.
+
+Here's a simple analogy: think of serialization as packing a suitcase before a trip (where the suitcase is the byte stream and the clothes are the object's data), and deserialization as unpacking the suitcase when you arrive at your destination¹.
+-------------------------------------------------------------------------------------------------------------
+
+In C++, `char**` is a pointer to a pointer to a character. Here's a bit more detail:
+
+- `char*` is a pointer to a character, which is often used to represent strings in C++. A string is essentially an array of characters, and the `char*` points to the first character in this array.
+
+- `char**`, then, is a pointer to a `char*`, or a pointer to a string. This can be used to represent an array of strings, where each string is an array of characters. The `char**` points to the first `char*` in this array.
+
+Here's a simple example:
+
+```cpp
+char* str = "Hello";  // str is a pointer to "H"
+char** arr = &str;  // arr is a pointer to str
+```
+
+In this example, `str` is a `char*` that points to the string "Hello", and `arr` is a `char**` that points to `str`. So through `arr`, you can access the string "Hello". This becomes especially useful when dealing with dynamic arrays of strings or when passing strings to functions in certain ways.
+-------------------------------------------------------------------------------------------------------------
+
+Programming Language Idioms
+
+Think of idioms as the "slang" or "jargon" of a programming language. Just like in spoken languages, where we have phrases that mean something different than the literal words (like "it's raining cats and dogs"), programming languages have their own set of phrases or patterns that mean something specific to that language.
+
+For example, in English, if I say "break a leg", I'm not literally telling you to break your leg. Instead, it's an idiom that means "good luck". Similarly, in programming, if you see `for (i=0; i<10; i++)` in C language, it's an idiom that means "repeat something 10 times".
+
+So, idioms in programming are these common patterns or ways of writing code that are specific to a particular language. They're like the language's own unique way of doing things. And just like understanding slang can make you sound more fluent in a spoken language, understanding idioms can make you more proficient in a programming language.
+-------------------------------------------------------------------------------------------------------------
+
+
+
