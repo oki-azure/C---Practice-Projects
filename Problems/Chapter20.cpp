@@ -108,7 +108,6 @@ struct Pinger {
         socket.async_receive_from(boost::asio::buffer(receipt_buffer), sender_endpoint,
             [this](boost::system::error_code ec, size_t length) {
                 if (!ec) std::cout << "Received reply from " << sender_endpoint.address().to_string() << std::endl;
-                
                 start_receive();
             }
         );
