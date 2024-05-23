@@ -66,27 +66,21 @@ Print the operating_number inside each loop.
  
 struct Element {
     Element* next{};
-
     Element* previous{}; 
 
     void insert_after(Element* new_element) {
         new_element->next = next;
-
         next = new_element;
-
         new_element->previous = this;
     }
 
     void insert_before(Element* new_element) {
         new_element->previous = previous; 
-
         previous = new_element; 
-
         new_element->next = this; 
     }
 
     char prefix[2];
-
     short operating_number;
 };
 
